@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply for Doctor</title>
+  <link rel="icon" href="images/tooth.jpg" type="image/jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+     
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e1f3f8;
+  color: #333;
+  padding-top: 60px; 
+}
+
+header {
+  background: linear-gradient(135deg, #005C97, #363795); 
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  letter-spacing: 3px;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  z-index: 1000; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+header .logo::before {
+  content: "🦷";
+  margin-right: 10px;
+  font-size: 28px;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.auth-buttons button {
+  background-color: #ffffff;
+  color: #005C97; 
+  border: 2px solid #005C97;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.auth-buttons button:hover {
+  background-color: #005C97;
+  color: #ffffff;
+}
+
+nav {
+  display: flex;
+  gap: 50px;
+  justify-content: flex-end; 
+  width: 75%; 
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 15px; 
+  border-radius: 100px; 
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+nav a:hover {
+  background: linear-gradient(135deg, #60A5FA, #2563EB); 
+  color: white; 
+  border-radius: 30px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transform: scale(1.05); 
+  transition: all 0.3s ease; 
+}
+
+nav a.active {
+  background: linear-gradient(135deg, #60A5FA, #2563EB);
+  color: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.qr-image img {
+  width: 100%;
+  height: auto; 
+  display: block; 
+}
+
+.qr-image-container {
+  position: relative; 
+  width: 100%;
+}
+
+.qr-code {
+  position: absolute; 
+  top: 50%; 
+  left: 78%;
+  transform: translate(-50%, -50%); 
+  max-width: 1000px; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+</style>
+
+
+<body>
+
+<header>
+  <div class="logo">Escosia Dental Clinic</div>
+  <nav id="mainNav">
+      
+    <a href="homepage.html#hero-image">HOME</a>
+    <a href="homepage.html#about-us">ABOUT US</a>
+    <a href="homepage.html#reviews">RATINGS AND REVIEWS</a>
+    <a href="doctors.html" data-page="doctors.html">DOCTORS</a>
+    <a href="applydoc.html" data-page="apply.html">APPLY FOR DOCTOR</a>
+  
+  </nav>    
+</header>
+
+<div class="qr-image-container">
+    <img src="images/team2.png" alt="Hero Image" class="hero-image" />
+    <a href="https://form.jotform.com/243422383650453" rel="no-follow" target= "_blank">
+      <img src="https://www.jotform.com/uploads/escosiadentalclinic/form_files/243422383650453_1733656905_qrcode_muse.png" alt="QR Code" class="qr-code">
+    </a>
+  </div>
+  
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll("#mainNav a");
+
+  
+  const currentPage = window.location.pathname.split("/").pop();
+  const currentHash = window.location.hash;
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute("href");
+    const [page, hash] = href.split("#");
+
+    if (page === currentPage && (!hash || `#${hash}` === currentHash)) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+  });
+
+</script>
+  
+</body>
+</html>

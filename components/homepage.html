@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escosia Dental Clinic</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/tooth.jpg" type="image/jpg">
+  </head>
+  
+<style>
+    
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+  padding-top: 60px; 
+}
+
+header {
+  background: linear-gradient(135deg, #005C97, #363795); 
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  letter-spacing: 3px;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+header .logo::before {
+  content: "🦷";
+  margin-right: 10px;
+  font-size: 28px;
+}
+
+nav {
+  display: flex;
+  gap: 50px;
+  justify-content: flex-end; 
+  width: 75%; 
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 15px; 
+  border-radius: 100px; 
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+nav a:hover {
+  background: linear-gradient(135deg, #60A5FA, #2563EB); 
+  color: white; 
+  border-radius: 30px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transform: scale(1.05); 
+  transition: all 0.3s ease; 
+}
+
+nav a.active {
+  background: linear-gradient(135deg, #60A5FA, #2563EB);
+  color: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.auth-buttons button {
+  background-color: #ffffff;
+  color: #005C97; 
+  border: 2px solid #005C97;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.auth-buttons button:hover {
+  background-color: #005C97;
+  color: #ffffff;
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden;
+}
+
+.hero-image img {
+  object-fit: cover; 
+  width: 100%; 
+  height: 100%; 
+}
+
+.about-us {
+  text-align: center; 
+  padding: 100px 20px;
+  background-color: #ffffff;
+}
+
+.about-us h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 70px; 
+  color: #124ba0; 
+}
+
+.about-us .content {
+  display: flex; 
+  align-items: center;
+  justify-content: center; 
+  gap: 100px; 
+}
+
+.about-us img {
+  width: 500px;
+  height: auto;
+  border-radius: 10px; 
+}
+
+.about-us p {
+  font-size: 20px;
+  line-height: 2.0; 
+  color: #333; 
+  max-width: 600px; 
+  text-align: justify; 
+}
+
+.contact-us {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #e8f4fc;
+}
+
+.contact-us h2 {
+  color: #08306B;
+}
+
+.contact-us form {
+  max-width: 500px;
+  margin: 45px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.contact-us input,
+.contact-us textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #06060748;
+  font-size: 14px;
+  background-color: #f3f4f6;
+}
+
+.contact-us input:focus,
+.contact-us textarea:focus {
+  background-color: #e0f7fa;
+  border-color: #0097a7;
+  outline: none;
+}
+
+.contact-us .star-rating {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 1px 0;
+  direction: rtl;  
+}
+
+.contact-us input[type="radio"] {
+  display: none;
+}
+
+.contact-us .star {
+  font-size: 50px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.contact-us input[type="radio"]:checked ~ .star {
+  color: #5fe9f3;
+}
+
+.contact-us input[type="radio"]:hover ~ .star,
+.contact-us .star:hover {
+  color: #5fe9f3;
+}
+
+.contact-us button {
+  background-color: #08306b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contact-us button:hover {
+  background-color: #075c8c;
+}
+
+.footer {
+  background: linear-gradient(135deg, #08306B, #3a7bd5);
+  padding: 40px 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.footer-text {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.footer-text h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer-text p {
+  font-size: 16px;
+}
+
+.footer-details {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-details p {
+  font-size: 15px;
+  margin-bottom: 10px;
+  padding-left: 100px;
+}
+
+.social-icons {
+  margin-top: 50px;
+  padding-left: 100px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: white;   
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  opacity: 0.7;
+}
+
+
+#feedbackList {
+  display: flex; 
+  flex-wrap: wrap;
+  gap: 30px; 
+  padding: 10px; 
+  justify-content: center;
+}
+
+#feedbackList > div {
+  width: 300px; 
+  padding: 20px; 
+  margin-bottom: 15px; 
+  border: 1px solid #ccc; 
+  border-radius: 10px; 
+  background-color: #fff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  text-align: left; 
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+</style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Escosia Dental Clinic</div>
+      <nav id="mainNav">
+      <a href="homepage.html#hero-image">HOME</a>
+      <a href="#about-us">ABOUT US</a>
+      <a href="homepage.html#reviews">RATINGS AND REVIEWS</a>
+      <a href="doctors.html" data-page="doctors.html">DOCTORS</a>
+      <a href="applydoc.html" data-page="apply.html">APPLY FOR DOCTOR</a>
+      </nav>    
+
+    <div class="auth-buttons">
+      <a href="starterpage.html"></a>
+    </div>
+  </header>
+
+  
+  <div id="hero-image" class="hero-image">
+        <img src="images/homepic.png" alt="Escosia Dental Clinic">
+      </div>
+  </div>
+  
+
+  <section id="about-us" class="about-us">
+    <h2>About Us</h2>
+    <div class="content">
+      <img src="./images/search.jpg" alt="Searching for a dentist?">
+      <p>At <strong>Escosia Dental Clinic</strong>, located in the heart of Manila, we offer a wide range of dental services to meet all your oral health needs. From routine check-ups and cleanings to advanced cosmetic and restorative treatment, our expert team is here to provide gentle, personalized care. Your dental health and comfort are our top priorities, and we're here to help you achieve and maintain a beautiful, healthy smile for years to come.</p>
+    </div>
+  </section>  
+
+    
+  <section id="contact-us" class="contact-us">
+    <h2><b>Share Your Experience</b></h2>
+    <form id="feedbackForm">
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <textarea id="message" placeholder="Type your message here..." rows="5" required></textarea>
+        <div id="wordCountMessage"></div>
+
+        <label for="rating">We Value Your Feedback!</label>
+        <div class="star-rating">
+            <input type="radio" id="star5" name="rating" value="5" required /><label for="star5" class="star">&#9733;</label>
+            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" class="star">&#9733;</label>
+            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" class="star">&#9733;</label>
+            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" class="star">&#9733;</label>
+            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" class="star">&#9733;</label>
+        </div>
+
+        <button type="button" onclick="submitFeedback()"><b>Send Feedback</b></button>
+    </form>
+
+   
+    <div id="notification" style="display: none; background-color: #28a745; color: white; padding: 10px; border-radius: 5px; margin-top: 20px;">
+        Your feedback has been received! Thank you!
+    </div>
+
+    <div id="reviews" style="text-align: center; margin-top: 150px; color:#08306B;">
+        <h2><b>Escosia Dental Patient Experiences</b></h2>
+        <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; margin-top: 10px; margin-bottom: 50px;">
+            <div id="starGraph" style="font-size: 30px; letter-spacing: 15px; color: #5fe9f3; margin-right: 10px; margin-top: 30px;">
+                &#9734;&#9734;&#9734;&#9734;&#9734; 
+            </div>
+            <span id="averageRating" style="font-size: 25px; color: #08306B; margin-top: 30px;">0 out of 5</span>
+        </div>
+    </div>
+
+    <div id="feedbackList" style="margin-top: 20px;"></div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-text">
+        <h2>Smile with us.</h2>
+        <p>We are a COVID-19 ready clinic. Rest assured that safety protocols mandated by the government are observed.</p>
+      </div>
+      <div class="footer-details">
+        <p><strong>Address:</strong> 1251-C Zobel Roxas Street, Manila City</p>
+        <p><strong>Tel:</strong><br> (02) 8522 1529<br> (+63) 927 817 6233<br> (+63) 917 323 1727</p>
+        <p><strong>Email:</strong> support@escosiadental.com</p>
+        <p><strong>Social:</strong> @official.escosiadental</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/official.escosiadental" target="_blank" class="fab fa-facebook-f" aria-label="Facebook"></a>
+          <a href="https://www.instagram.com" target="_blank" class="fab fa-instagram" aria-label="Instagram"></a>
+          <a href="https://www.youtube.com" target="_blank" class="fab fa-youtube" aria-label="YouTube"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll("#mainNav a");
+
+  const setActiveLink = () => {
+    const currentPath = window.location.pathname.split("/").pop();
+    const currentHash = window.location.hash;
+
+    navLinks.forEach(link => {
+      const [hrefPath, hrefHash] = link.getAttribute("href").split("#");
+
+      if (
+        hrefPath === currentPath &&
+        (!hrefHash || `#${hrefHash}` === currentHash)
+      ) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  };
+
+  setActiveLink();
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.forEach(link => link.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
+});
+
+
+
+  function showNotification() {  
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var message = document.getElementById("message").value;
+      var rating = document.querySelector('input[name="rating"]:checked');
+      
+      if (name === "" || email === "" || message === "" || !rating) {
+        
+        alert("Please fill out all fields before submitting.");
+      } else {
+       
+        var notification = document.getElementById("notification");
+        notification.style.display = "block";
+        
+        setTimeout(function() {
+          notification.style.display = "none";
+        }, 5000);  
+      }
+  }
+
+
+let feedbacks = [
+  {
+    name: "Jaime Seaworth",
+    email: "jaime.seaworth@gmail.com",
+    message: "Great experience, but there’s room for improvement.",
+    rating: 4,
+  },
+  {
+     name: "Anna Miller",
+    email: "anna.miller@gmail.com",
+    message: "Really nice staff and a quick, painless visit.",
+    rating: 5,
+  },
+  {
+    name: "John Davis",
+    email: "john.davis@gmail.com",
+    message: "Good experience, but the wait was a little longer than expected.",
+    rating: 4,
+   },
+  {
+    name: "Mark Thompson",
+    email: "mark.thompson@gmail.com",
+    message: "Everything went smoothly, and they explained the process really well. Good service!",
+    rating: 5,
+  },
+  {
+    name: "Sophia Lewis",
+    email: "sophia.lewis@gmail.com",
+    message: "Loved how friendly everyone was. My teeth feel amazing after the cleaning.",
+    rating: 5,
+  },
+  {
+    name: "James Knight",
+    email: "james.knight@gmail.com",
+    message: "Had a filling done, quick and easy. Very professional team.",
+    rating: 5,
+  },
+];
+
+
+function submitFeedback() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+  const rating = document.querySelector('input[name="rating"]:checked');
+
+  if (!name || !email || !message || !rating) {
+    alert("Please fill out all fields before submitting.");
+    return;
+  }
+
+  const reviewData = {
+    name: name,
+    email: email,
+    message: message,
+    rating: parseInt(rating.value),
+  };
+
+  fetch("http://localhost:5000/submit-review", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(reviewData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.message) {
+        alert("Your feedback has been submitted!");
+        fetchReviews();
+      }
+    })
+    .catch((error) => {
+      console.error("Error submitting review:", error);
+      alert("Failed to submit feedback. Please try again.");
+    });
+}
+
+
+function updateFeedbackList() {
+  const feedbackList = document.getElementById("feedbackList");
+  
+  feedbackList.innerHTML = "";
+
+  if (feedbacks.length === 0) {
+    feedbackList.innerHTML = "<p>No reviews yet. Be the first to leave a review!</p>";
+    return;
+  }
+
+ 
+  feedbacks.forEach((feedback) => {
+    const feedbackItem = document.createElement("div");
+    feedbackItem.classList.add("feedback-item");
+
+    feedbackItem.innerHTML = `
+      <div style="font-size: 24px; color: #5fe9f3; margin-bottom: 10px;">
+        ${"&#9733;".repeat(feedback.rating)}${"&#9734;".repeat(5 - feedback.rating)}
+      </div>
+      <p style="font-size: 16px; color: #555; margin-bottom: 15px;">${feedback.message}</p>
+      <div style="display: flex; align-items: center; gap: 10px; justify-content: left; margin-top: 25px;">
+        <img src="images/tooth.jpg" alt="User Avatar" style="border-radius: 50%; width: 30px; height: 30px;" />
+        <p style="margin: 0; font-size: 14px; color: #333;"><b>${feedback.name}</b></p>
+      </div>
+    `;
+    
+    feedbackList.appendChild(feedbackItem);
+  });
+}
+
+
+function updateAverageRating() {
+  
+  const totalRating = feedbacks.reduce((sum, feedback) => sum + feedback.rating, 0);
+  
+  const averageRating = feedbacks.length ? (totalRating / feedbacks.length).toFixed(1) : 0;
+  
+  document.getElementById("averageRating").innerText = `${averageRating} out of 5`;
+ 
+  const roundedRating = Math.round(averageRating);
+  const fullStars = "&#9733;".repeat(roundedRating); 
+  const emptyStars = "&#9734;".repeat(5 - roundedRating); 
+
+  document.getElementById("starGraph").innerHTML = fullStars + emptyStars;
+}
+
+
+function deleteReviewFromFrontend(reviewId) {
+
+  fetch(`http://localhost:5000/delete-review/${reviewId}`, {
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.message) {
+        alert("Review deleted successfully!");
+
+       
+        feedbacks = feedbacks.filter((feedback) => feedback._id !== reviewId);
+        
+        updateFeedbackList();
+        
+        localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+
+        updateAverageRating();
+      } else {
+        alert("Failed to delete the review.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error deleting review:", error);
+      alert("Failed to delete the review. Please try again.");
+    });
+}
+ 
+
+function fetchReviews() {
+  fetch("http://localhost:5000/reviews")
+    .then((response) => response.json())
+    .then((data) => {
+     
+      feedbacks = data; 
+     
+      localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+
+      updateFeedbackList();
+      updateAverageRating();
+    })
+    .catch((error) => {
+      console.error("Error fetching reviews:", error);
+    });
+}
+
+
+window.onload = function () {
+  const storedFeedbacks = localStorage.getItem("feedbacks");
+
+  if (storedFeedbacks) {
+    feedbacks = JSON.parse(storedFeedbacks);
+    updateFeedbackList();
+    updateAverageRating();
+  } else {
+    fetchReviews();
+  }
+};
+
+  
+const textarea = document.getElementById('message');
+const wordCountMessage = document.getElementById('wordCountMessage');
+
+const maxWords = 20;
+
+function countWords(event) {
+    const text = event.target.value;
+
+    const wordCount = text.trim().split(/\s+/).filter(function (word) {
+        return word.length > 0;
+    }).length;
+
+    if (wordCount > maxWords) {
+        const words = text.trim().split(/\s+/).slice(0, maxWords).join(' ');
+        event.target.value = words; 
+    }
+
+}
+
+textarea.addEventListener('input', countWords);
+
+    
+</script>
+  
+  
+</body>
+</html>
