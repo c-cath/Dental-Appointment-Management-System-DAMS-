@@ -4,13 +4,10 @@ This system optimizes patient access to dental care and enhances service efficie
 
 Features
 
-Patient Profiles: Maintain detailed patient information.
-
-Online Appointments: Book, reschedule, and manage appointments easily.
-
-Automated Reminders & Notifications: Keep patients informed about upcoming appointments.
-
-Administrative Tools: Enable clinic staff to efficiently manage schedules and track patient engagement.
+1. Patient Profiles: Maintain detailed patient information.
+2. Online Appointments: Book, reschedule, and manage appointments easily.
+3. Automated Reminders & Notifications: Keep patients informed about upcoming appointments.
+4. Administrative Tools: Enable clinic staff to efficiently manage schedules and track patient engagement.
 
 Purpose
 
